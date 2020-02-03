@@ -128,7 +128,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Gomoku";
+            this.Text = "Gomoku by YMK";
             this.Field.ResumeLayout(false);
             this.Field.PerformLayout();
             this.ResumeLayout(false);
