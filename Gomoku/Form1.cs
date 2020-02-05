@@ -119,7 +119,7 @@ namespace Gomoku
             p.Y = p.Y / gridSize + (p.Y % gridSize > gridSize / 2 ? 1 : 0);
             int who = WhosTurn()+1;
             // check vertically
-            for (int i = 0; p.Y >= 0; i++)
+            for (int i = 0; p.Y-i >= 0; i++)
             {
                 if (gomokuField[p.X, p.Y - i] == who)
                     ++cntVertical;
@@ -127,7 +127,7 @@ namespace Gomoku
                     break;
             }
 
-            for (int i = 1; p.Y <= FIELD; i++)
+            for (int i = 1; p.Y+i < FIELD; i++)
             {
                 if (gomokuField[p.X, p.Y + i] == who)
                     ++cntVertical;
@@ -138,7 +138,7 @@ namespace Gomoku
                 return true;
 
             // check horizontally
-            for (int i = 0; p.X >= 0; i++)
+            for (int i = 0; p.X-i >= 0; i++)
             {
                 if (gomokuField[p.X - i, p.Y] == who)
                     ++cntHorizontal;
@@ -146,7 +146,7 @@ namespace Gomoku
                     break;
             }
 
-            for (int i = 1; p.Y <= FIELD; i++)
+            for (int i = 1; p.X+i < FIELD; i++)
             {
                 if (gomokuField[p.X + i, p.Y] == who)
                     ++cntHorizontal;
@@ -158,7 +158,7 @@ namespace Gomoku
                 return true;
 
             // check diagonal NE
-            for (int i = 0; p.Y >= 0 && p.X <= FIELD; i++)
+            for (int i = 0; p.Y-i >= 0 && p.X+i < FIELD; i++)
             {
                 if (gomokuField[p.X + i, p.Y - i] == who)
                     ++cntDiagonalNE;
@@ -166,7 +166,7 @@ namespace Gomoku
                     break;
             }
 
-            for (int i = 1; p.Y <= FIELD && p.X >= 0; i++)
+            for (int i = 1; p.Y+i < FIELD && p.X-i >= 0; i++)
             {
                 if (gomokuField[p.X - i, p.Y + i] == who)
                     ++cntDiagonalNE;
@@ -177,7 +177,7 @@ namespace Gomoku
                 return true;
 
             // check diagonal SE
-            for (int i = 0; p.Y >= 0 && p.X >= 0; i++)
+            for (int i = 0; p.Y-i >= 0 && p.X-i >= 0; i++)
             {
                 if (gomokuField[p.X - i, p.Y - i] == who)
                     ++cntDiagonalSE;
@@ -185,7 +185,7 @@ namespace Gomoku
                     break;
             }
 
-            for (int i = 1; p.Y <= FIELD && p.X <= FIELD; i++)
+            for (int i = 1; p.Y+i < FIELD && p.X+i < FIELD; i++)
             {
                 if (gomokuField[p.X + i, p.Y + i] == who)
                     ++cntDiagonalSE;
